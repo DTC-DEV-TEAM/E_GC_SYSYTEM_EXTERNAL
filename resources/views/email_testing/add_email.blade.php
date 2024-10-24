@@ -154,6 +154,11 @@
                                 <img src="{{URL::to('store_logo/img/os_terms_and_conditions.jpg')}}" style="max-width: 500px; max-width: 500px; object-fit: contain;" class="btb" hspace="10">                          
                                 <img src="{{URL::to('store_logo/img/os_claiming.jpg')}}" style="max-width: 500px; max-width: 500px; object-fit: contain;" class="btb" hspace="10">
                             </div>
+                            <div id="iphone" style="margin-bottom:5px; margin-top:15px; text-align:center; display:none">
+                                <img src="{{URL::to('store_logo/img/Iphone-lunch-qr.png')}}" style="max-width: 500px; max-width: 500px; object-fit: contain;" class="btb" hspace="10">
+                                <img src="{{URL::to('store_logo/img/iphone-terms-conditions.png')}}" style="max-width: 500px; max-width: 500px; object-fit: contain;" class="btb" hspace="10">
+                                <img src="{{URL::to('store_logo/img/iphone-claim.png')}}" style="max-width: 500px; max-width: 500px; object-fit: contain;" class="btb" hspace="10">
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6 mail_img_content">
@@ -359,22 +364,33 @@
                 $('#btb').hide();
                 $('#btb_dw').hide();
                 $('#open_source').hide();
+                $('#iphone').hide();
             }else if(this.value == 2){
                 $('#dw').hide();
                 $('#btb').show();
                 $('#btb_dw').hide();
                 $('#open_source').hide();
+                $('#iphone').hide();
             }else if(this.value == 3){
                 $('#dw').hide();
                 $('#btb').hide();
                 $('#btb_dw').show();
                 $('#open_source').hide();
+                $('#iphone').hide();
             }else if(this.value == 4){
                 $('#dw').hide();
                 $('#btb').hide();
                 $('#btb_dw').hide();
                 $('#open_source').show();
+                $('#iphone').hide();
+            }else if(this.value == 6){
+                $('#dw').hide();
+                $('#btb').hide();
+                $('#btb_dw').hide();
+                $('#open_sourse').hide();
+		        $('#iphone').show();
             }
+
         });
     });
 

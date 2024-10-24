@@ -545,6 +545,21 @@ use Session;
 				</div>
 				';
 			}
+			// Iphone Launch
+			else if($data['CampaignId']->store_logo == 6){
+				$data['emailContent'] .='		
+					<div class="col-md-4">		
+						<img id="uploaded_img" style="max-height: 500px; width: 100%; max-width: 500px; object-fit: contain; text-align: center; margin-top: 5px;" src="'.URL::to('store_logo/img').'/'.'Iphone-lunch-qr.png' .'"> 
+					</div>
+					<div class="col-md-4">		
+						<img id="uploaded_img" style="max-height: 500px; width: 100%; max-width: 500px; object-fit: contain; text-align: center; margin-top: 5px;" src="'.URL::to('store_logo/img').'/'.'iphone-terms-conditions.png' .'"> 
+					</div>
+					<div class="col-md-4">		
+						<img id="uploaded_img" style="max-height: 500px; width: 100%; max-width: 500px; object-fit: contain; text-align: center; margin-top: 5px;" src="'.URL::to('store_logo/img').'/'.'iphone-claim.png' .'"> 
+					</div>
+				';
+			}
+
 
 
 			foreach($data['EmailHeaderImgs'] as $image){

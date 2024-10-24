@@ -865,11 +865,13 @@ class AdminQrCreationsController extends \crocodicstudio\crudbooster\controllers
 			$dw_btb_path = 'store_logo/img/btb_and_dw';
 			$os_path = 'store_logo/img/os';
 			$dyanamic_img_path = 'email_template_img/img/';
+			$iphone_path = 'store_logo/img/Iphone-lunch-qr.png';
 			
 			$dw_image = Image::make(public_path($dw_path.'.jpg'));
 			$btb_image = Image::make(public_path($btb_path.'.jpg'));
 			$dw_btb_image = Image::make(public_path($dw_btb_path.'.png'));
 			$os_path = Image::make(public_path($os_path.'.jpg'));
+			$iphone = Image::make(public_path($iphone_path));
 			// $dynamic_image = Image::make(public_path($dyanamic_img_path.$qr_img));
 
 			$save_path = 'e_gift_card/img/';
@@ -884,7 +886,7 @@ class AdminQrCreationsController extends \crocodicstudio\crudbooster\controllers
 				$color = '#d85a5f';
 				$shadow = '#000000';
 
-				self::saveImage($amount, $qr_api, $logo_path, $value_width, $filename, $qr_x_position, $qr_y_position, $color, $shadow);
+				self::saveImage($amount, $qr_api, $logo_path, $value_width, $filename, $qr_x_position, $qr_y_position, $color, $shadow, $store_logo);
 			}
 
 			elseif($store_logo == 2){
@@ -897,7 +899,7 @@ class AdminQrCreationsController extends \crocodicstudio\crudbooster\controllers
 				$color = '#1a1a1a';
 				$shadow = null;
 
-				self::saveImage($amount, $qr_api, $logo_path, $value_width, $filename, $qr_x_position, $qr_y_position, $color, $shadow);
+				self::saveImage($amount, $qr_api, $logo_path, $value_width, $filename, $qr_x_position, $qr_y_position, $color, $shadow,$store_logo);
 			}
 
 			elseif($store_logo == 3){
@@ -910,7 +912,7 @@ class AdminQrCreationsController extends \crocodicstudio\crudbooster\controllers
 				$color = '#1a1a1a';
 				$shadow = null;
 
-				self::saveImage($amount, $qr_api, $logo_path, $value_width, $filename, $qr_x_position, $qr_y_position, $color, $shadow);
+				self::saveImage($amount, $qr_api, $logo_path, $value_width, $filename, $qr_x_position, $qr_y_position, $color, $shadow, $store_logo);
 			}
 
 			if($store_logo == 4){
@@ -923,13 +925,25 @@ class AdminQrCreationsController extends \crocodicstudio\crudbooster\controllers
 				$color = '#1a1a1a';
 				$shadow = null;
 
-				self::saveImage($amount, $qr_api, $logo_path, $value_width, $filename, $qr_x_position, $qr_y_position, $color, $shadow);
+				self::saveImage($amount, $qr_api, $logo_path, $value_width, $filename, $qr_x_position, $qr_y_position, $color, $shadow, $store_logo);
+			}
+			if($store_logo == 6){
+
+				$logo_path = $iphone;
+				$filename = $save_path.Str::random(10).'.jpg';
+				$value_width = 510;
+				$qr_x_position = 89;
+				$qr_y_position = 35;
+				$color = '#1a1a1a';
+				$shadow = null;
+
+				self::saveImage($amount, $qr_api, $logo_path, $value_width, $filename, $qr_x_position, $qr_y_position, $color, $shadow, $store_logo);
 			}
 
 			return $filename;
 		}
 
-		public function saveImage($amount, $qr_api, $logo_path, $value_width, $filename, $qr_x_position, $qr_y_position, $color, $shadow){
+		public function saveImage($amount, $qr_api, $logo_path, $value_width, $filename, $qr_x_position, $qr_y_position, $color, $shadow,$store_logo){
 
 			$text_width = 0; // Initialize outside the closure
 	
@@ -968,10 +982,14 @@ class AdminQrCreationsController extends \crocodicstudio\crudbooster\controllers
 			$content = file_get_contents($qrCodeApiLink);
 			$qrCodeImage = Image::make($content);
 
+			if($store_logo == 6){
+				$qrCodeImage->resize(200, 200); 
+			}
+
+
 			// Overlay the QR code onto the main image as a watermark
 			$real_image->insert($qrCodeImage, 'bottom-right', $qr_x_position, $qr_y_position)
 				->save(public_path($filename));
 		}
 
 	}
-

@@ -72,6 +72,16 @@
             </div>
         </tr>
         @endif
+        @if ($store_logo == 6)
+        <tr align="center">
+            <div class="container">
+                <img src="{{ $message->embed(public_path() . '/store_logo/img/' . 'iphone-terms-conditions.png') }}" width="800" style="max-height: 800px; min-width: 800px; object-fit: contain; text-align: center;" />
+            </div>
+            <div class="container">
+                <img src="{{ $message->embed(public_path() . '/store_logo/img/' . 'iphone-claim.png') }}" width="800" style="max-height: 800px; min-width: 800px; object-fit: contain; text-align: center;" />
+            </div>
+        </tr>
+        @endif
         <tr>
             <td align="center">
                 <div class="container">
