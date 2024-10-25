@@ -546,7 +546,7 @@ use Session;
 				';
 			}
 			// Iphone Launch
-			else if($data['CampaignId']->store_logo == 6){
+			else if($data['CampaignId']->store_logo == 5){
 				$data['emailContent'] .='		
 					<div class="col-md-4">		
 						<img id="uploaded_img" style="max-height: 500px; width: 100%; max-width: 500px; object-fit: contain; text-align: center; margin-top: 5px;" src="'.URL::to('store_logo/img').'/'.'Iphone-lunch-qr.png' .'"> 

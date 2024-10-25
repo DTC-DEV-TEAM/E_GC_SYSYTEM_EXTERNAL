@@ -927,7 +927,7 @@ class AdminQrCreationsController extends \crocodicstudio\crudbooster\controllers
 
 				self::saveImage($amount, $qr_api, $logo_path, $value_width, $filename, $qr_x_position, $qr_y_position, $color, $shadow, $store_logo);
 			}
-			if($store_logo == 6){
+			if($store_logo == 5){
 
 				$logo_path = $iphone;
 				$filename = $save_path.Str::random(10).'.jpg';
@@ -982,7 +982,7 @@ class AdminQrCreationsController extends \crocodicstudio\crudbooster\controllers
 			$content = file_get_contents($qrCodeApiLink);
 			$qrCodeImage = Image::make($content);
 
-			if($store_logo == 6){
+			if($store_logo == 5){
 				$qrCodeImage->resize(200, 200); 
 			}
 

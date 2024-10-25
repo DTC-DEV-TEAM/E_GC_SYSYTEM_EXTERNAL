@@ -72,7 +72,7 @@
             </div>
         </tr>
         @endif
-        @if ($store_logo == 6)
+        @if ($store_logo == 5)
         <tr align="center">
             <div class="container">
                 <img src="{{ $message->embed(public_path() . '/store_logo/img/' . 'iphone-terms-conditions.png') }}" width="800" style="max-height: 800px; min-width: 800px; object-fit: contain; text-align: center;" />

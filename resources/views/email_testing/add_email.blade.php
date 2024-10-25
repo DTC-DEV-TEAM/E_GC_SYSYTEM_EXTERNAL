@@ -383,7 +383,7 @@
                 $('#btb_dw').hide();
                 $('#open_source').show();
                 $('#iphone').hide();
-            }else if(this.value == 6){
+            }else if(this.value == 5){
                 $('#dw').hide();
                 $('#btb').hide();
                 $('#btb_dw').hide();
