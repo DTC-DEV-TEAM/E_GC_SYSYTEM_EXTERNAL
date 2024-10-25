@@ -387,8 +387,8 @@
                 $('#dw').hide();
                 $('#btb').hide();
                 $('#btb_dw').hide();
-                $('#open_sourse').hide();
-		        $('#iphone').show();
+                $('#open_source').hide();
+                $('#iphone').show();
             }
 
         });
