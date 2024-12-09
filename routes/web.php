@@ -5,6 +5,8 @@ use App\Http\Controllers\AdminQrCreationsController;
 use App\Http\Controllers\AdminEmailTestingsController;
 use Illuminate\Support\Facades\Route;
 use App\EmailTesting;
+use App\Http\Controllers\ExcelUploadController;
+use App\Http\Controllers\ManualSendCampaignController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,9 @@ use App\EmailTesting;
 Route::get('/', function () {
     return redirect('/admin/login');
 });
+
+// Route::post('admin/test/upload-excel', [ExcelUploadController::class, 'upload'])->name('local-excel-upload');
+// Route::get('admin/test/upload-excel', [ExcelUploadController::class, 'getUpload'])->name('local-excel-get-upload');
 
 // Scan QR
 Route::get('admin/g_c_lists/scan_qr', [AdminGCListsController::class, 'getScanQR'])->name('scan_qr');
@@ -57,3 +62,5 @@ Route::post(config('crudbooster.ADMIN_PATH').'send-email-testing', [AdminEmailTe
 Route::get('admin/g_c_lists/upload_gc_list/dowload_template/{campaign_id}/{campaign}', [AdminQrCreationsController::class, 'exportDataCampaign'])->name('export_data_campaign');
 Route::get('admin/g_c_lists/upload_gc_list/import_data/{campaign_id}', [AdminQrCreationsController::class, 'countImportData'])->name('count_import');
 Route::get('admin/g_c_lists/upload_gc_list/export_build_excel/{campaign_id}/{campaign}', [AdminQrCreationsController::class, 'exportBuildData'])->name('export_build_data');
+
+Route::get('admin/send-campaign-gc/{gc_id}', [ManualSendCampaignController::class,'sendCampaignData'])->name('sendCampaignData');
