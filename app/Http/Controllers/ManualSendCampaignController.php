@@ -74,7 +74,7 @@ class ManualSendCampaignController extends Controller
                     // 'qr_img' => $qr_img
                 );
 
-                Log::debug($data);
+
 
                 try{
                     $path = (new AdminQrCreationsController)->manipulate_image($data['gc_value'], $data['qrCodeApiUrl'], $data['store_logo']);
@@ -82,7 +82,8 @@ class ManualSendCampaignController extends Controller
                     $data['qr_code_generated'] = $path;
 
                     $email = new QrEmail($data);
-
+                    Log::debug($data);
+                    Log::debug($email);
                     Mail::to($data['email'])->send($email);
 
                 }catch(Exception $e){
