@@ -19,6 +19,8 @@ class ManualSendCampaignController extends Controller
             ->where('id', $id)
             ->get();
 
+        Log::info(json_encode($toSendEmails));
+
         foreach ($toSendEmails as $gcList) {
             $generated_qr_info = QrCreation::find($gcList->campaign_id);
                 $id = $gcList->id;
@@ -71,6 +73,8 @@ class ManualSendCampaignController extends Controller
                     'campaign_id_qr' => $campaign_id_qr,
                     // 'qr_img' => $qr_img
                 );
+
+                Log::debug($data);
 
                 try{
                     $path = (new AdminQrCreationsController)->manipulate_image($data['gc_value'], $data['qrCodeApiUrl'], $data['store_logo']);
